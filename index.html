@@ -76,12 +76,16 @@
       align-items: center; gap: 3rem; width: 100%;
     }
     .hero-photo-wrap {
-      position: relative; display: flex; justify-content: center; align-items: center;
+      display: flex; justify-content: center; align-items: flex-start;
+      padding-top: 1rem;
+    }
+    .hero-photo-container {
+      position: relative; display: inline-block;
     }
     .hero-photo-ring {
       width: 400px; height: 460px; border-radius: 40% 60% 60% 40% / 50% 50% 50% 50%;
       background: linear-gradient(135deg, var(--purple), var(--purple-light), #C3A8E8);
-      padding: 4px;
+      padding: 4px; display: block;
     }
     .hero-photo-inner {
       width: 100%; height: 100%;
@@ -93,7 +97,7 @@
       display: block;
     }
     .hero-photo-badge {
-      position: absolute; bottom: -12px; left: -16px;
+      position: absolute; bottom: 20px; left: -20px;
       background: var(--card); border: 1px solid var(--border);
       border-radius: 14px; padding: 0.75rem 1rem;
       display: flex; align-items: center; gap: 0.6rem;
@@ -105,7 +109,7 @@
     @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(76,175,80,0.5)} 50%{box-shadow:0 0 0 6px rgba(76,175,80,0)} }
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-photo-wrap { order: -1; }
+      .hero-photo-wrap { order: -1; padding-top: 0; }
       .hero-photo-ring { width: 260px; height: 300px; }
     }
     .hero-bg {
@@ -429,16 +433,18 @@
       </div>
     </div>
     <div class="hero-photo-wrap">
-      <div class="hero-photo-ring">
-        <div class="hero-photo-inner">
-          <img src="WhatsApp%20Unknown%202026-04-28%20at%2011.00.28%20PM/logesh.png" alt="Logeshwari Dhanasekar" />
+      <div class="hero-photo-container">
+        <div class="hero-photo-ring">
+          <div class="hero-photo-inner">
+            <img src="WhatsApp%20Unknown%202026-04-28%20at%2011.00.28%20PM/logesh.png" alt="Logeshwari Dhanasekar" />
+          </div>
         </div>
-      </div>
-      <div class="hero-photo-badge">
-        <div class="hero-photo-badge-dot"></div>
-        <div>
-          <div class="hero-photo-badge-text">UI/UX Designer</div>
-          <div class="hero-photo-badge-sub">@ Popkey Pvt. Ltd.</div>
+        <div class="hero-photo-badge">
+          <div class="hero-photo-badge-dot"></div>
+          <div>
+            <div class="hero-photo-badge-text">UI/UX Designer</div>
+            <div class="hero-photo-badge-sub">@ Popkey Pvt. Ltd.</div>
+          </div>
         </div>
       </div>
     </div>
