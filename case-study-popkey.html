@@ -68,6 +68,14 @@
     .cs-stat-val { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--purple-light); margin-bottom: 0.3rem; }
     .cs-stat-lbl { font-size: 0.82rem; color: var(--text-muted); }
 
+    /* Impact cards */
+    .cs-impact { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem; }
+    .cs-impact-item { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem; transition: border-color 0.2s, transform 0.2s; }
+    .cs-impact-item:hover { border-color: var(--purple); transform: translateY(-3px); }
+    .cs-impact-item h3 { font-size: 1.02rem; color: var(--purple-light); margin-bottom: 0.5rem; }
+    .cs-impact-item p { font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.65; }
+    @media (max-width: 720px) { .cs-impact { grid-template-columns: 1fr; } }
+
     /* Footer CTA */
     .cs-cta-block { text-align: center; padding: 3.5rem 0; border-top: 1px solid var(--border); margin-top: 1rem; }
     .cs-cta-block h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1.4rem; }
@@ -126,21 +134,22 @@
     <!-- Challenge -->
     <section class="cs-section">
       <h2>The Challenge</h2>
-      <p>Launch a brand-new IoT hardware product with no existing digital identity — and make a physical
-      smart-locker feel <strong>trustworthy, modern and effortless</strong> online, for two very different
-      audiences: walk-in mall users scanning a QR code, and B2B partners evaluating the platform.</p>
+      <p>Design a complete digital experience for a new IoT smart-locker platform from the ground up. The goal
+      was to establish a <strong>trustworthy brand</strong>, clearly communicate the product's value, and create
+      a seamless experience for two distinct audiences: <strong>everyday shoppers</strong> using QR-based lockers
+      and <strong>business partners</strong> evaluating the platform for deployment.</p>
     </section>
 
     <!-- Process -->
     <section class="cs-section">
       <h2>My Process</h2>
       <div class="cs-steps">
-        <div class="cs-step"><div class="cs-step-num">01</div><h3>Research</h3><p>Studied users, the market &amp; competitors to ground the design.</p></div>
-        <div class="cs-step"><div class="cs-step-num">02</div><h3>Positioning</h3><p>Shaped the "Digital Keyvolution" story and messaging.</p></div>
-        <div class="cs-step"><div class="cs-step-num">03</div><h3>Brand Identity</h3><p>Logo, colour system and typography.</p></div>
-        <div class="cs-step"><div class="cs-step-num">04</div><h3>UI Design</h3><p>Wireframes → high-fidelity screens in Figma.</p></div>
-        <div class="cs-step"><div class="cs-step-num">05</div><h3>Design System</h3><p>Reusable components &amp; tokens for consistency.</p></div>
-        <div class="cs-step"><div class="cs-step-num">06</div><h3>Build &amp; Launch</h3><p>Designed &amp; published the live site on Wix Studio.</p></div>
+        <div class="cs-step"><div class="cs-step-num">01</div><h3>Discovery &amp; Research</h3><p>Competitor analysis and user research to understand customer needs, business goals, and market opportunities.</p></div>
+        <div class="cs-step"><div class="cs-step-num">02</div><h3>Product Strategy</h3><p>Defined the product positioning, messaging, and information architecture to communicate the value proposition clearly to both consumers and enterprise clients.</p></div>
+        <div class="cs-step"><div class="cs-step-num">03</div><h3>Brand Identity</h3><p>Designed a scalable visual identity — logo, typography, colour palette, and brand guidelines — for a consistent, recognizable presence.</p></div>
+        <div class="cs-step"><div class="cs-step-num">04</div><h3>UX &amp; UI Design</h3><p>Created user flows and high-fidelity interfaces focused on simplicity, accessibility, and a mobile-first experience.</p></div>
+        <div class="cs-step"><div class="cs-step-num">05</div><h3>Design System</h3><p>Built a reusable design system with standardized components, colours, spacing, and typography to ensure consistency and support future development.</p></div>
+        <div class="cs-step"><div class="cs-step-num">06</div><h3>Development &amp; Launch</h3><p>Designed &amp; published the live site on Wix Studio.</p></div>
       </div>
     </section>
 
@@ -148,24 +157,22 @@
     <section class="cs-section">
       <h2>The Solution</h2>
       <ul class="cs-list">
-        <li>A modern marketing website with a clear product showcase</li>
-        <li>A cohesive brand identity applied across web &amp; print</li>
-        <li>A responsive, mobile-first locker experience</li>
-        <li>A design system of reusable components &amp; colour tokens</li>
-        <li>Marketing collateral for on-site mall campaigns</li>
+        <li>Designed a modern, responsive marketing website that clearly communicates the product and its benefits.</li>
+        <li>Delivered an intuitive mobile-first experience for QR-based smart-locker interactions.</li>
+        <li>Established a reusable design system to improve design consistency and accelerate future development.</li>
+        <li>Produced supporting marketing assets for mall campaigns, product promotions, and business presentations.</li>
       </ul>
     </section>
 
     <!-- Impact -->
     <section class="cs-section">
       <h2>Impact</h2>
-      <div class="cs-stats">
-        <div class="cs-stat"><div class="cs-stat-val">2 cities</div><div class="cs-stat-lbl">Chennai &amp; Hyderabad malls</div></div>
-        <div class="cs-stat"><div class="cs-stat-val">1 brand</div><div class="cs-stat-lbl">Identity that scales across products</div></div>
-        <div class="cs-stat"><div class="cs-stat-val">Live</div><div class="cs-stat-lbl">Site shipped &amp; in production</div></div>
+      <div class="cs-impact">
+        <div class="cs-impact-item"><h3>Successful Product Launch</h3><p>Delivered a complete digital presence for a new IoT product, enabling a successful market introduction.</p></div>
+        <div class="cs-impact-item"><h3>Consistent Brand Experience</h3><p>Created a unified visual identity that can scale across future products and marketing channels.</p></div>
+        <div class="cs-impact-item"><h3>Improved Design Efficiency</h3><p>The reusable design system reduced design effort and ensured consistency across new features and campaigns.</p></div>
+        <div class="cs-impact-item"><h3>Real-World Deployment</h3><p>The website, branding, and marketing assets were deployed to support the product's launch in shopping malls — a consistent experience for both customers and business clients.</p></div>
       </div>
-      <p style="margin-top:1.4rem;">The brand and campaign have been deployed across premium mall locations, and the
-      shared design system now speeds up delivery of new Popkey digital products.</p>
     </section>
 
   </div>
