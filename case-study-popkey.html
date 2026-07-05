@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study — Popkey Smart Locker Platform · Logeshwari Dhanasekar</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple: #7B5EA7; --purple-light: #9B7EC8; --purple-dark: #4A3570; --red: #E63030;
+      --dark: #0D0D1A; --dark-2: #13132A; --card: #1A1A35; --card-2: #22224A;
+      --text: #E8E6F0; --text-muted: #9B98B3; --border: rgba(123,94,167,0.25); --glow: rgba(123,94,167,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Top bar */
+    .cs-nav { position: sticky; top: 0; z-index: 20; background: rgba(13,13,26,0.85); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border); }
+    .cs-nav-inner { max-width: 1000px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .cs-back { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .cs-back:hover { color: var(--purple-light); }
+    .cs-nav-cta { background: var(--purple); color: #fff; padding: 0.5rem 1.1rem; border-radius: 100px; font-size: 0.85rem; font-weight: 600; transition: background 0.2s, transform 0.2s; }
+    .cs-nav-cta:hover { background: var(--purple-light); transform: translateY(-1px); }
+
+    /* Hero */
+    .cs-hero { padding: 4.5rem 0 3rem; text-align: center; background: radial-gradient(ellipse at top, rgba(123,94,167,0.18), transparent 60%); }
+    .cs-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--purple-light); background: rgba(123,94,167,0.15); padding: 0.35rem 0.9rem; border-radius: 100px; margin-bottom: 1.2rem; }
+    .cs-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; }
+    .cs-hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 640px; margin: 0 auto; }
+
+    /* Hero banner */
+    .cs-banner { height: 260px; border-radius: 22px; margin: 2.5rem 0; display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; background: linear-gradient(135deg, #1A0A0A, #5A1010); border: 1px solid var(--border); }
+
+    /* Meta strip */
+    .cs-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2.5rem 0; }
+    .cs-meta-item { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem; }
+    .cs-meta-item span { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--purple-light); margin-bottom: 0.35rem; }
+    .cs-meta-item strong { font-size: 0.9rem; color: var(--text); font-weight: 600; }
+
+    /* Content blocks */
+    .cs-section { padding: 2.2rem 0; border-top: 1px solid var(--border); }
+    .cs-section h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; margin-bottom: 1rem; }
+    .cs-section p { color: var(--text-muted); font-size: 1.02rem; line-height: 1.85; margin-bottom: 1rem; }
+    .cs-section strong { color: var(--text); }
+    .cs-list { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.5rem; }
+    .cs-list li { list-style: none; color: var(--text-muted); font-size: 1rem; line-height: 1.6; padding-left: 1.6rem; position: relative; }
+    .cs-list li::before { content: '→'; position: absolute; left: 0; color: var(--purple-light); font-weight: 700; }
+
+    /* Process steps */
+    .cs-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .cs-step { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem; }
+    .cs-step-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--purple-light); margin-bottom: 0.5rem; }
+    .cs-step h3 { font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .cs-step p { font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.55; }
+
+    /* Impact stats */
+    .cs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+    .cs-stat { background: var(--card-2); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: center; }
+    .cs-stat-val { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--purple-light); margin-bottom: 0.3rem; }
+    .cs-stat-lbl { font-size: 0.82rem; color: var(--text-muted); }
+
+    /* Footer CTA */
+    .cs-cta-block { text-align: center; padding: 3.5rem 0; border-top: 1px solid var(--border); margin-top: 1rem; }
+    .cs-cta-block h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1.4rem; }
+    .cs-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--purple); color: #fff; padding: 0.85rem 1.6rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: var(--purple-light); transform: translateY(-2px); box-shadow: 0 8px 30px var(--glow); }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); padding: 0.85rem 1.6rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+    .btn-outline:hover { border-color: var(--purple-light); color: var(--purple-light); transform: translateY(-2px); }
+
+    @media (max-width: 720px) {
+      .cs-meta { grid-template-columns: repeat(2, 1fr); }
+      .cs-stats { grid-template-columns: 1fr; }
+      .cs-banner { height: 180px; font-size: 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="cs-nav">
+    <div class="cs-nav-inner">
+      <a class="cs-back" href="index.html#projects">← Back to Portfolio</a>
+      <a class="cs-nav-cta" href="https://www.popkey.org/" target="_blank" rel="noopener">View Live Site ↗</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="cs-hero">
+    <div class="wrap">
+      <span class="cs-eyebrow">🔐 Case Study · Digital Keyvolution</span>
+      <h1>Popkey — Smart Locker Platform</h1>
+      <p>Branding, web design &amp; build for an IoT-powered smart-locker product, deployed across premium malls in Chennai &amp; Hyderabad.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- Banner -->
+    <div class="cs-banner">🔐</div>
+
+    <!-- Meta -->
+    <div class="cs-meta">
+      <div class="cs-meta-item"><span>Role</span><strong>UI/UX Designer &amp; Web Developer</strong></div>
+      <div class="cs-meta-item"><span>Platform</span><strong>Wix Studio</strong></div>
+      <div class="cs-meta-item"><span>Tools</span><strong>Figma · Wix Studio</strong></div>
+      <div class="cs-meta-item"><span>Deployment</span><strong>Malls · Chennai &amp; Hyderabad</strong></div>
+    </div>
+
+    <!-- Overview -->
+    <section class="cs-section" style="border-top:none;">
+      <h2>Overview</h2>
+      <p><strong>Popkey</strong> is an IoT-powered smart-locker platform offering secure, contactless access and
+      digital key management for malls, residential and commercial spaces. I led the product's
+      <strong>digital brand and web presence</strong> — from identity and UI design to building the live
+      marketing site and a reusable design system aligned with the <strong>"Digital Keyvolution"</strong>
+      positioning.</p>
+    </section>
+
+    <!-- Challenge -->
+    <section class="cs-section">
+      <h2>The Challenge</h2>
+      <p>Launch a brand-new IoT hardware product with no existing digital identity — and make a physical
+      smart-locker feel <strong>trustworthy, modern and effortless</strong> online, for two very different
+      audiences: walk-in mall users scanning a QR code, and B2B partners evaluating the platform.</p>
+    </section>
+
+    <!-- Process -->
+    <section class="cs-section">
+      <h2>My Process</h2>
+      <div class="cs-steps">
+        <div class="cs-step"><div class="cs-step-num">01</div><h3>Positioning</h3><p>Shaped the "Digital Keyvolution" story and messaging.</p></div>
+        <div class="cs-step"><div class="cs-step-num">02</div><h3>Brand Identity</h3><p>Logo, colour system and typography.</p></div>
+        <div class="cs-step"><div class="cs-step-num">03</div><h3>UI Design</h3><p>Wireframes → high-fidelity screens in Figma.</p></div>
+        <div class="cs-step"><div class="cs-step-num">04</div><h3>Design System</h3><p>Reusable components &amp; tokens for consistency.</p></div>
+        <div class="cs-step"><div class="cs-step-num">05</div><h3>Build &amp; Launch</h3><p>Developed and shipped the live site on Wix Studio.</p></div>
+      </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="cs-section">
+      <h2>The Solution</h2>
+      <ul class="cs-list">
+        <li>A modern marketing website with a clear product showcase</li>
+        <li>A cohesive brand identity applied across web &amp; print</li>
+        <li>A responsive, mobile-first locker experience</li>
+        <li>A design system of reusable components &amp; colour tokens</li>
+        <li>Marketing collateral for on-site mall campaigns</li>
+      </ul>
+    </section>
+
+    <!-- Impact -->
+    <section class="cs-section">
+      <h2>Impact</h2>
+      <div class="cs-stats">
+        <div class="cs-stat"><div class="cs-stat-val">2 cities</div><div class="cs-stat-lbl">Chennai &amp; Hyderabad malls</div></div>
+        <div class="cs-stat"><div class="cs-stat-val">1 brand</div><div class="cs-stat-lbl">Identity that scales across products</div></div>
+        <div class="cs-stat"><div class="cs-stat-val">Live</div><div class="cs-stat-lbl">Site shipped &amp; in production</div></div>
+      </div>
+      <p style="margin-top:1.4rem;">The brand and campaign have been deployed across premium mall locations, and the
+      shared design system now speeds up delivery of new Popkey digital products.</p>
+    </section>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cs-cta-block">
+    <div class="wrap">
+      <h2>Want to see it live?</h2>
+      <div class="cs-btns">
+        <a class="btn-primary" href="https://www.popkey.org/" target="_blank" rel="noopener">Visit popkey.org ↗</a>
+        <a class="btn-outline" href="index.html#projects">← Back to Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

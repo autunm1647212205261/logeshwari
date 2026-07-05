@@ -259,6 +259,14 @@
     .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
     .project-tag { font-size: 0.72rem; padding: 0.2rem 0.6rem; background: rgba(123,94,167,0.15); border-radius: 100px; color: var(--purple-light); }
     .project-arrow { color: var(--purple-light); font-size: 1.1rem; }
+    .cs-badge {
+      position: absolute; top: 0.8rem; right: 0.8rem; z-index: 5;
+      background: rgba(13,13,26,0.72); backdrop-filter: blur(6px);
+      border: 1px solid var(--border); color: var(--text);
+      font-size: 0.72rem; font-weight: 600; padding: 0.35rem 0.75rem; border-radius: 100px;
+      cursor: pointer; transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .cs-badge:hover { background: var(--purple); border-color: var(--purple); transform: translateY(-1px); }
 
     /* ── GRAPHIC DESIGN ── */
     #design { background: var(--dark); }
@@ -387,7 +395,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#case-study">Case Study</a></li>
+    <li><a href="case-study-popkey.html" target="_blank" rel="noopener">Case Study</a></li>
     <li><a href="#design">Design</a></li>
     <li><a href="#achievements">Achievements</a></li>
   </ul>
@@ -575,7 +583,9 @@
   <p class="section-subtitle">Interactive prototypes and design explorations — click to view live in Figma.</p>
   <div class="projects-grid">
 
-    <a class="project-card" href="https://www.popkey.org/" target="_blank" rel="noopener">
+    <a class="project-card" style="position:relative;" href="https://www.popkey.org/" target="_blank" rel="noopener">
+      <span class="cs-badge" role="button" tabindex="0"
+            onclick="event.preventDefault();event.stopPropagation();window.open('case-study-popkey.html','_blank','noopener');">Case Study ↗</span>
       <div class="project-thumb" style="background: linear-gradient(135deg, #1A0A0A, #5A1010);">
         <div class="project-thumb-inner">🔐</div>
       </div>
@@ -689,112 +699,6 @@
       </div>
     </a>
 
-  </div>
-</section>
-
-<!-- CASE STUDY: POPKEY -->
-<section id="case-study">
-  <style>
-    #case-study { background: var(--dark); }
-    .cs-wrap { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; margin-top: 3rem; align-items: start; }
-    .cs-overview {
-      background: var(--card); border: 1px solid var(--border); border-radius: 18px;
-      padding: 1.8rem; color: var(--text-muted); line-height: 1.85; font-size: 1.02rem; margin-bottom: 1.5rem;
-    }
-    .cs-overview strong { color: var(--text); }
-    .cs-tagline { display: inline-block; margin-bottom: 1rem; font-size: 0.78rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple-light);
-      background: rgba(123,94,167,0.15); padding: 0.3rem 0.8rem; border-radius: 100px; }
-    .cs-blocks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-    .cs-block {
-      background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.6rem;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .cs-block:hover { border-color: var(--purple); transform: translateY(-4px); }
-    .cs-block h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
-    .cs-block h3 .cs-ico { font-size: 1.2rem; }
-    .cs-block p, .cs-block li { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
-    .cs-block ul, .cs-block ol { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .cs-meta {
-      background: var(--card-2); border: 1px solid var(--border); border-radius: 18px;
-      padding: 1.6rem; position: sticky; top: 90px;
-    }
-    .cs-meta-item { padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
-    .cs-meta-item:last-of-type { border-bottom: none; }
-    .cs-meta-item span { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--purple-light); margin-bottom: 0.3rem; }
-    .cs-meta-item strong { font-size: 0.9rem; color: var(--text); font-weight: 600; }
-    .cs-cta {
-      display: block; text-align: center; margin-top: 1.2rem; padding: 0.8rem;
-      background: var(--purple); color: #fff; border-radius: 100px; font-size: 0.9rem; font-weight: 600;
-      text-decoration: none; transition: background 0.25s, transform 0.25s;
-    }
-    .cs-cta:hover { background: var(--purple-light); transform: translateY(-2px); }
-    @media (max-width: 820px) {
-      .cs-wrap { grid-template-columns: 1fr; }
-      .cs-blocks { grid-template-columns: 1fr; }
-      .cs-meta { position: static; }
-    }
-  </style>
-  <div class="section-tag">Case Study</div>
-  <h2 class="section-title">Popkey — Smart Locker Platform</h2>
-  <p class="section-subtitle">End-to-end branding, web design &amp; build for an IoT smart-locker product.</p>
-
-  <div class="cs-wrap">
-    <div class="cs-main">
-      <div class="cs-overview">
-        <span class="cs-tagline">🔐 Digital Keyvolution</span>
-        <p><strong>Popkey</strong> is an IoT-powered smart-locker platform offering secure, contactless
-        access and digital key management for malls, residential and commercial spaces. I led the
-        product's <strong>digital brand and web presence</strong> — from identity and UI design to
-        building the live marketing site and a reusable design system. The brand and campaign have been
-        deployed across <strong>premium malls in Chennai &amp; Hyderabad</strong>.</p>
-      </div>
-
-      <div class="cs-blocks">
-        <div class="cs-block">
-          <h3><span class="cs-ico">🎯</span> The Challenge</h3>
-          <p>Launch a brand-new IoT hardware product with no existing digital identity — and make a
-          physical smart-locker feel trustworthy, modern and effortless online, for both walk-in mall
-          users and B2B partners.</p>
-        </div>
-        <div class="cs-block">
-          <h3><span class="cs-ico">🧭</span> My Process</h3>
-          <ol>
-            <li>Positioning &amp; research → the "Digital Keyvolution" story</li>
-            <li>Brand identity — logo, color, typography</li>
-            <li>Wireframes → high-fidelity UI in Figma</li>
-            <li>Reusable design system for consistency</li>
-            <li>Build &amp; launch on Wix Studio</li>
-          </ol>
-        </div>
-        <div class="cs-block">
-          <h3><span class="cs-ico">✨</span> The Solution</h3>
-          <ul>
-            <li>Modern marketing website with a clear product showcase</li>
-            <li>Cohesive brand identity across web &amp; print</li>
-            <li>Responsive, mobile-first locker experience</li>
-            <li>Design system of reusable components &amp; tokens</li>
-          </ul>
-        </div>
-        <div class="cs-block">
-          <h3><span class="cs-ico">📈</span> Impact</h3>
-          <ul>
-            <li>Live site &amp; brand deployed across Chennai &amp; Hyderabad malls</li>
-            <li>Consistent identity that scales across new products</li>
-            <li>Faster design delivery via the shared design system</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <aside class="cs-meta">
-      <div class="cs-meta-item"><span>Role</span><strong>UI/UX Designer &amp; Web Developer</strong></div>
-      <div class="cs-meta-item"><span>Platform</span><strong>Wix Studio</strong></div>
-      <div class="cs-meta-item"><span>Tools</span><strong>Figma · Wix Studio</strong></div>
-      <div class="cs-meta-item"><span>Deliverables</span><strong>Brand identity, Website, Design system, Marketing collateral</strong></div>
-      <div class="cs-meta-item"><span>Deployment</span><strong>Malls in Chennai &amp; Hyderabad</strong></div>
-      <a class="cs-cta" href="https://www.popkey.org/" target="_blank" rel="noopener">View Live Site ↗</a>
-    </aside>
   </div>
 </section>
 
